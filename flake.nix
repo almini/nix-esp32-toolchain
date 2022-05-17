@@ -19,8 +19,17 @@
           sha256 = "sha256-nt0ed2J2iPQ1Vhki0UKZ9qACG6H2/2fkcuEQhpWmnlM=";
         };
 
+        nativeBuildInputs = [
+          autoPatchelfHook
+          stdenv.cc.cc.lib 
+          zlib 
+          ncurses5 
+          python27
+        ];
+
         dontConfigure = true;
         dontBuild = true;
+        dontStrip = true;
 
         installPhase = ''
           mkdir -p $out
